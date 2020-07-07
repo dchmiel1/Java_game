@@ -19,8 +19,8 @@ public class MyPaths {
 	public final static String heroF = "/img/hero/heroF.png";
 	public final static String heroM_R = "/img/hero/heroM_R.png";
 	public final static String heroM_L = "/img/hero/heroM_L.png";
-	public final static String heroF_R = "/img/hero/heroF_R_46x158.png";
-	public final static String heroF_L = "/img/hero/heroF_L_46x158.png";
+	public final static String heroF_R = "/img/hero/heroF_R.png";
+	public final static String heroF_L = "/img/hero/heroF_L.png";
 	public final static String heroM_R_walking_1 = "/img/hero/heroM_R_walking_1.png";
 	public final static String heroM_R_walking_2 = "/img/hero/heroM_R_walking_2.png";
 	public final static String heroM_L_walking_1 = "/img/hero/heroM_L_walking_1.png";
