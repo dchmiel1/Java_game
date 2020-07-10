@@ -22,7 +22,7 @@ public class BossTroll extends Monster {
 	private int timeToAttack;
 	private boolean attack;
 	private Hero hero;
-	//private MP3Player player;
+	private MP3Player player;
 
 	public BossTroll(double x, double y, World world, Hero hero, GameState gameState) {
 		super(x, y, world, gameState);
