@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 
 import graphics.MyPaths;
-import jaco.mp3.player.MP3Player;
 //import jaco.mp3.player.MP3Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,8 +39,8 @@ public class MainController {
 	}
 
 	private void setMenuMusic() {
-		Main.player = new MP3Player(new File(MyPaths.menuMusic));
-		Main.player.play();
+		//Main.player = new MP3Player(new File(MyPaths.menuMusic));
+		//Main.player.play();
 	}
 
 }

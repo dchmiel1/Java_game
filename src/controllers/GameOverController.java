@@ -37,7 +37,7 @@ public class GameOverController {
 		setScreen(pane);
 		Main.ifMusic = true;
 		Main.ifSounds = true;
-		Main.setMusic(MyPaths.menuMusic);
+		//Main.setMusic(MyPaths.menuMusic);
 	}
 
 	@FXML

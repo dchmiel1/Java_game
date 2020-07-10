@@ -67,10 +67,10 @@ public class MenuController {
 		if (url.substring(url.toString().length() - 6, url.toString().length() - 4).equals("on")) {
 			music.setImage(new Image(getClass().getResource(MyPaths.music_off).toExternalForm()));
 			Main.ifMusic = false;
-			Main.player.pause();
+			//Main.player.pause();
 		} else {
 			music.setImage(new Image(getClass().getResource(MyPaths.music_on).toExternalForm()));
-			Main.player.play();
+			//Main.player.play();
 			Main.ifMusic = true;
 		}
 	}
