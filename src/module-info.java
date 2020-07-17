@@ -1,7 +1,7 @@
 module MyGame {
 	requires javafx.fxml;
 	requires transitive javafx.controls;
-	//requires transitive jaco.mp3.player;
+	requires transitive jaco.mp3.player;
 	
 	exports main;
 	exports graphics.objects;

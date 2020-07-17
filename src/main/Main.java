@@ -1,7 +1,9 @@
 package main;
 
+import java.io.File;
+
 import graphics.MyPaths;
-//import jaco.mp3.player.MP3Player;
+import jaco.mp3.player.MP3Player;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,7 +19,7 @@ public class Main extends Application {
 	public static StackPane stackPane;
 	public static boolean ifSounds;
 	public static boolean ifMusic;
-	//public static MP3Player player;
+	public static MP3Player player;
 
 	public static boolean ifBad = false;
 
@@ -39,7 +41,7 @@ public class Main extends Application {
 		stage.show();
 	}
 
-	/*public static void setMusic(String path) {
+	public static void setMusic(String path) {
 		try {
 			String currentDirectory = System.getProperty("user.dir");
 			String pathToMusic = currentDirectory + "/" + path;
@@ -49,6 +51,6 @@ public class Main extends Application {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 
 }

@@ -67,10 +67,10 @@ public class HeroChoiceController {
 
 	@FXML
 	private void womanChosen() {
-		// playButton.setDisable(false);
-		// manImg.setEffect(null);
-		// womanImg.setEffect(glow);
-		// choice = 'f';
+		//playButton.setDisable(false);
+		//manImg.setEffect(null);
+		//womanImg.setEffect(glow);
+		//choice = 'f';
 	}
 
 	private void setScreen(Pane pane) {

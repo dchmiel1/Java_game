@@ -54,10 +54,10 @@ public class Level1 extends GameState {
 	}
 
 	private void bossTime() {
-		/*if (Main.ifMusic && !Main.ifBad)
+		if (Main.ifMusic && !Main.ifBad)
 			Main.setMusic(MyPaths.bossMusic);
 		else if (Main.ifMusic)
-			Main.setMusic(MyPaths.delfin);*/
+			Main.setMusic(MyPaths.delfin);
 		world.bossTime();
 	}
 
@@ -203,10 +203,10 @@ public class Level1 extends GameState {
 			System.exit(0);
 		}
 		setStartingObjects();
-		/*if (Main.ifMusic && !bossTime)
+		if (Main.ifMusic && !bossTime)
 			Main.setMusic(MyPaths.gameMusic);
 		else if (Main.ifMusic && bossTime)
-			Main.setMusic(MyPaths.bossMusic);*/
+			Main.setMusic(MyPaths.bossMusic);
 		keyboard = new Keyboard(hero, bg, Main.scene);
 		runner = new Runner(this, canvas);
 		runner.run();
@@ -220,10 +220,10 @@ public class Level1 extends GameState {
 		timer++;
 		if (!bossTime && timer == 10080 || bossTime && timer == 7488) {
 			timer = 0;
-			/*if (bossTime)
+			if (bossTime)
 				Main.setMusic(MyPaths.bossMusic);
 			else
-				Main.setMusic(MyPaths.gameMusic);*/
+				Main.setMusic(MyPaths.gameMusic);
 		}
 
 	}

@@ -7,7 +7,7 @@ import graphics.World;
 import graphics.objects.Arrow;
 import graphics.objects.Hero;
 import graphics.objects.Monster;
-//import jaco.mp3.player.MP3Player;
+import jaco.mp3.player.MP3Player;
 import javafx.scene.image.Image;
 import main.Main;
 
@@ -18,7 +18,7 @@ public class MonsterDryad extends Monster {
 	private Image arrowsR[] = new Image[2];
 	private Image arrowsL[] = new Image[2];
 	private Hero hero;
-	//private MP3Player player;
+	private MP3Player player;
 
 	public MonsterDryad(double x, double y, World world, Hero hero, GameState gameState) {
 		super(x, y, world, gameState);
@@ -90,13 +90,13 @@ public class MonsterDryad extends Monster {
 			if (timer % 150 == 112) {
 				attack();
 				var musicPath = new File(MyPaths.bow);
-				//if (Main.ifSounds)
-					/*try {
+				if (Main.ifSounds)
+					try {
 						player = new MP3Player(musicPath);
 						player.play();
 					} catch (Exception e) {
 						e.printStackTrace();
-					}*/
+					}
 			}
 
 			if (timer % 150 < 113)
