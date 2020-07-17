@@ -21,7 +21,7 @@ public class Main extends Application {
 	public static boolean ifMusic;
 	public static MP3Player player;
 
-	public static boolean ifBad = false;
+	public static boolean ifBad = true;
 
 	public static void main(String[] args) {
 		launch(args);
