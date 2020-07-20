@@ -54,10 +54,8 @@ public class Level1 extends GameState {
 	}
 
 	private void bossTime() {
-		if (Main.ifMusic && !Main.ifBad)
+		if (Main.ifMusic)
 			Main.setMusic(MyPaths.bossMusic);
-		else if (Main.ifMusic)
-			Main.setMusic(MyPaths.delfin);
 		world.bossTime();
 	}
 

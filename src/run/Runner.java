@@ -29,8 +29,8 @@ public class Runner {
 	}
 	
 	private void gameOver() {
-		if (Main.ifBad)
-			Main.setMusic(MyPaths.stacjaPiata);
+		if (Main.ifSpecialSounds)
+			Main.setMusic(MyPaths.bGameOver);
 		else
 			Main.player.pause();
 		var loader = new FXMLLoader(this.getClass().getResource(MyPaths.screenGameOver));
@@ -60,10 +60,10 @@ public class Runner {
 			e.printStackTrace();
 		}
 		pane.setStyle("-fx-background-color: rgba(0, 0, 0, 0);");
-		if (Main.ifSounds && !Main.ifBad)
+		if (Main.ifSounds && !Main.ifSpecialSounds)
 			Main.setMusic(MyPaths.winSound);
 		else if (Main.ifSounds)
-			Main.setMusic(MyPaths.wilkuWin);
+			Main.setMusic(MyPaths.bWin);
 		Main.stackPane.getChildren().add(pane);
 	}
 

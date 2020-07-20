@@ -2,9 +2,6 @@ package graphics;
 
 public class MyPaths {
 
-	
-	//IMGS
-	
 	//screens
 	public final static String screenMenu = "/fxml/menuScreen.fxml";
 	public final static String screenHeroChoice = "/fxml/heroChoiceScreen.fxml";
@@ -148,15 +145,12 @@ public class MyPaths {
 	public final static String winSound = "res/sound/win.mp3";
 	public final static String trollHit = "res/sound/trollHit.mp3";
 	
-	
-	//uncensored
-	public final static String madi = "res/sound/special/kurwa_madi.mp3";
-	public final static String wilku = "res/sound/special/kurwa_wilk.mp3";
-	public final static String bieniu = "res/sound/special/oh_bieniu.mp3";
-	public final static String miska = "res/sound/special/miska.mp3";
-	public final static String bieniuHit = "res/sound/special/bieniu_hit.mp3";
-	public final static String stacjaPiata = "res/sound/special/stacja_piata.mp3";
-	public final static String wilkuWin = "res/sound/special/wilku_win.mp3";
-	public final static String jebanyKowboj = "res/sound/special/jebany_kowboj.mp3";
-	public final static String delfin = "res/sound/special/boss.mp3";
+	public final static String bHit1 = "res/sound/special/bHit1.mp3";
+	public final static String bHit2 = "res/sound/special/bHit2.mp3";
+	public final static String bHit3 = "res/sound/special/bHit3.mp3";
+	public final static String bCollect = "res/sound/special/bCollect.mp3";
+	public final static String bPunch = "res/sound/special/bPunch.mp3";
+	public final static String bGameOver = "res/sound/special/bGameOver.mp3";
+	public final static String bWin = "res/sound/special/bWin.mp3";
+	public final static String bKowboj = "res/sound/special/bKowboj.mp3";
 }

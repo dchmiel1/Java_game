@@ -20,8 +20,8 @@ public class Main extends Application {
 	public static boolean ifSounds;
 	public static boolean ifMusic;
 	public static MP3Player player;
-
-	public static boolean ifBad = true;
+	
+	public static boolean ifSpecialSounds = false;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -29,7 +29,6 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-
 		var loader = new FXMLLoader(this.getClass().getResource(MyPaths.screenMain));
 		Main.ifSounds = true;
 		Main.ifMusic = true;

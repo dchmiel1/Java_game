@@ -2,13 +2,12 @@ package controllers;
 
 import java.io.File;
 import java.io.IOException;
-
 import graphics.MyPaths;
-import jaco.mp3.player.MP3Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import jaco.mp3.player.MP3Player;
 import main.Main;
 
 public class MainController {

@@ -53,7 +53,7 @@ public abstract class Hero extends Object {
 	private MP3Player player;
 
 	//
-	protected File censoredFile[] = new File[5];
+	protected File specialSounds[] = new File[5];
 	protected int j = 0;
 	//
 
@@ -203,10 +203,10 @@ public abstract class Hero extends Object {
 		for (int i = 0; i < gameState.getWeapons().size(); i++) {
 			if (this.ifCollisionWithObject(gameState.getWeapons().get(i))) {
 				if (Main.ifSounds)
-					if (!Main.ifBad)
+					if (!Main.ifSpecialSounds)
 						playSound(soundFile[5]);
 					else
-						playSound(censoredFile[3]);
+						playSound(specialSounds[3]);
 				if (activeWeapon == WeaponType.none)
 					activeWeapon = gameState.getWeapons().get(i).getWeaponType();
 				weapons.add(gameState.getWeapons().get(i).getWeaponType());
@@ -217,10 +217,10 @@ public abstract class Hero extends Object {
 		for (int i = 0; i < gameState.getItems().size(); i++) {
 			if (this.ifCollisionWithObject(gameState.getItems().get(i))) {
 				if (Main.ifSounds)
-					if (!Main.ifBad)
+					if (!Main.ifSpecialSounds)
 						playSound(soundFile[5]);
 					else
-						playSound(censoredFile[3]);
+						playSound(specialSounds[3]);
 				if (gameState.getItems().get(i).getItemType() == ItemType.bullets) {
 					bullets += 10;
 				}
@@ -241,10 +241,10 @@ public abstract class Hero extends Object {
 			if (this.ifCollisionWithObject(gameState.getMonsters().get(i))) {
 				hp -= gameState.getMonsters().get(i).hpWhenCollision;
 				if (Main.ifSounds)
-					if (!Main.ifBad)
+					if (!Main.ifSpecialSounds)
 						playSound(soundFile[2]);
 					else {
-						playSound(censoredFile[j]);
+						playSound(specialSounds[j]);
 						j++;
 						if (j > 2)
 							j = 0;
@@ -257,10 +257,10 @@ public abstract class Hero extends Object {
 				gameState.getArrows().remove(i);
 				hp -= 40;
 				if (Main.ifSounds)
-					if (!Main.ifBad)
+					if (!Main.ifSpecialSounds)
 						playSound(soundFile[2]);
 					else {
-						playSound(censoredFile[j]);
+						playSound(specialSounds[j]);
 						j++;
 						if (j > 2)
 							j = 0;
@@ -271,10 +271,10 @@ public abstract class Hero extends Object {
 		if (this.ifCollisionWithBoss()) {
 			hp -= gameState.getBoss().hpWhenCollision;
 			if (Main.ifSounds)
-				if (!Main.ifBad)
+				if (!Main.ifSpecialSounds)
 					playSound(soundFile[2]);
 				else {
-					playSound(censoredFile[j]);
+					playSound(specialSounds[j]);
 					j++;
 					if (j > 2)
 						j = 0;
@@ -330,10 +330,10 @@ public abstract class Hero extends Object {
 							(int) heroImgsR[6].getWidth() / 2 + 5, gameState.getMonsters().get(i))) {
 						gameState.getMonsters().get(i).ifHit(damage);
 						if (Main.ifSounds)
-							if (!Main.ifBad)
+							if (!Main.ifSpecialSounds)
 								playSound(soundFile[4]);
 							else {
-								playSound(censoredFile[4]);
+								playSound(specialSounds[4]);
 							}
 					}
 				} else {
@@ -341,10 +341,10 @@ public abstract class Hero extends Object {
 							gameState.getMonsters().get(i))) {
 						gameState.getMonsters().get(i).ifHit(damage);
 						if (Main.ifSounds)
-							if (!Main.ifBad)
+							if (!Main.ifSpecialSounds)
 								playSound(soundFile[4]);
 							else {
-								playSound(censoredFile[4]);
+								playSound(specialSounds[4]);
 							}
 					}
 				}
@@ -354,20 +354,20 @@ public abstract class Hero extends Object {
 						(int) heroImgsR[6].getWidth() / 2 + 5)) {
 					gameState.getBoss().ifHit(damage);
 					if (Main.ifSounds)
-						if (!Main.ifBad)
+						if (!Main.ifSpecialSounds)
 							playSound(soundFile[4]);
 						else {
-							playSound(censoredFile[4]);
+							playSound(specialSounds[4]);
 						}
 				}
 			} else {
 				if (this.ifBossHit((int) posX + xOff - 5, (int) heroImgsR[j].getWidth() / 2)) {
 					gameState.getBoss().ifHit(damage);
 					if (Main.ifSounds)
-						if (!Main.ifBad)
+						if (!Main.ifSpecialSounds)
 							playSound(soundFile[4]);
 						else {
-							playSound(censoredFile[4]);
+							playSound(specialSounds[4]);
 						}
 				}
 			}
@@ -402,11 +402,11 @@ public abstract class Hero extends Object {
 		this.soundFile[3] = new File(MyPaths.weaponAttack);
 		this.soundFile[4] = new File(MyPaths.hit);
 		this.soundFile[5] = new File(MyPaths.collect);
-		this.censoredFile[0] = new File(MyPaths.wilku);
-		this.censoredFile[1] = new File(MyPaths.madi);
-		this.censoredFile[2] = new File(MyPaths.bieniu);
-		this.censoredFile[3] = new File(MyPaths.miska);
-		this.censoredFile[4] = new File(MyPaths.bieniuHit);
+		this.specialSounds[0] = new File(MyPaths.bHit1);
+		this.specialSounds[1] = new File(MyPaths.bHit2);
+		this.specialSounds[2] = new File(MyPaths.bHit3);
+		this.specialSounds[3] = new File(MyPaths.bCollect);
+		this.specialSounds[4] = new File(MyPaths.bPunch);
 	}
 
 	@Override
