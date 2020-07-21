@@ -51,11 +51,9 @@ public abstract class Hero extends Object {
 	// shot, empty, damage, weaponAttack, hit
 	protected File soundFile[] = new File[6];
 	private MP3Player player;
-
-	//
+	
 	protected File specialSounds[] = new File[5];
 	protected int j = 0;
-	//
 
 	public Hero(GameState gameState, double x, double y, World world) {
 		super(x, y, world, gameState);
