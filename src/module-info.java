@@ -1,5 +1,4 @@
 module MyGame {
-	
 	requires transitive javafx.controls;
 	requires transitive jaco.mp3.player;
 	requires javafx.fxml;
