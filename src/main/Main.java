@@ -22,7 +22,7 @@ public class Main extends Application {
 	public static boolean ifMusic;
 	public static MediaPlayer player;
 	
-	public static boolean ifSpecialSounds = false;
+	public static boolean ifSpecialSounds = true;
 
 	public static void main(String[] args) {
 		launch(args);

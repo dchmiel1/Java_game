@@ -52,6 +52,7 @@ public abstract class Hero extends Object {
 	// shot, empty, damage, weaponAttack, hit
 	protected File soundFile[] = new File[6];
 	private MediaPlayer player;
+	private MediaPlayer player2;
 	
 	protected File specialSounds[] = new File[5];
 	protected int j = 0;
@@ -88,6 +89,16 @@ public abstract class Hero extends Object {
 			Media hit = new Media(file.toURI().toString());
 			player = new MediaPlayer(hit);
 			player.play();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void playSound2(File file) {
+		try {
+			Media hit = new Media(file.toURI().toString());
+			player2 = new MediaPlayer(hit);
+			player2.play();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -242,9 +253,9 @@ public abstract class Hero extends Object {
 				hp -= gameState.getMonsters().get(i).hpWhenCollision;
 				if (Main.ifSounds)
 					if (!Main.ifSpecialSounds)
-						playSound(soundFile[2]);
+						playSound2(soundFile[2]);
 					else {
-						playSound(specialSounds[j]);
+						playSound2(specialSounds[j]);
 						j++;
 						if (j > 2)
 							j = 0;
@@ -258,9 +269,9 @@ public abstract class Hero extends Object {
 				hp -= 40;
 				if (Main.ifSounds)
 					if (!Main.ifSpecialSounds)
-						playSound(soundFile[2]);
+						playSound2(soundFile[2]);
 					else {
-						playSound(specialSounds[j]);
+						playSound2(specialSounds[j]);
 						j++;
 						if (j > 2)
 							j = 0;
@@ -272,9 +283,9 @@ public abstract class Hero extends Object {
 			hp -= gameState.getBoss().hpWhenCollision;
 			if (Main.ifSounds)
 				if (!Main.ifSpecialSounds)
-					playSound(soundFile[2]);
+					playSound2(soundFile[2]);
 				else {
-					playSound(specialSounds[j]);
+					playSound2(specialSounds[j]);
 					j++;
 					if (j > 2)
 						j = 0;
