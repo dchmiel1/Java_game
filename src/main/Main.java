@@ -1,13 +1,14 @@
 package main;
 
 import java.io.File;
-
 import graphics.MyPaths;
-import jaco.mp3.player.MP3Player;
+//import jaco.mp3.player.MP3Player;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -19,9 +20,9 @@ public class Main extends Application {
 	public static StackPane stackPane;
 	public static boolean ifSounds;
 	public static boolean ifMusic;
-	public static MP3Player player;
+	public static MediaPlayer player;
 	
-	public static boolean ifSpecialSounds = true;
+	public static boolean ifSpecialSounds = false;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -39,17 +40,14 @@ public class Main extends Application {
 		stage.setTitle("Game");
 		stage.show();
 	}
-
+	
 	public static void setMusic(String path) {
-		try {
-			String currentDirectory = System.getProperty("user.dir");
-			String pathToMusic = currentDirectory + "/" + path;
-			player.pause();
-			player = new MP3Player(new File(pathToMusic));
-			player.play();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		player.stop();
+		String currentDirectory = System.getProperty("user.dir");
+		String bip = currentDirectory + "/" + path;
+		Media hit = new Media(new File(bip).toURI().toString());
+		player = new MediaPlayer(hit);
+		player.play();
 	}
 
 }

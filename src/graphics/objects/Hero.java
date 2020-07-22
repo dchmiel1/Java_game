@@ -6,8 +6,9 @@ import gameStates.GameState;
 import graphics.GameCamera;
 import graphics.MyPaths;
 import graphics.World;
-import jaco.mp3.player.MP3Player;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -50,7 +51,7 @@ public abstract class Hero extends Object {
 	protected Image bullet;
 	// shot, empty, damage, weaponAttack, hit
 	protected File soundFile[] = new File[6];
-	private MP3Player player;
+	private MediaPlayer player;
 	
 	protected File specialSounds[] = new File[5];
 	protected int j = 0;
@@ -84,7 +85,8 @@ public abstract class Hero extends Object {
 	
 	private void playSound(File file) {
 		try {
-			player = new MP3Player(file);
+			Media hit = new Media(file.toURI().toString());
+			player = new MediaPlayer(hit);
 			player.play();
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -7,7 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import jaco.mp3.player.MP3Player;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import main.Main;
 
 public class MainController {
@@ -38,7 +39,10 @@ public class MainController {
 	}
 
 	private void setMenuMusic() {
-		Main.player = new MP3Player(new File(MyPaths.menuMusic));
+		String currentDirectory = System.getProperty("user.dir");
+		String bip = currentDirectory + "/" + MyPaths.menuMusic;
+		Media hit = new Media(new File(bip).toURI().toString());
+		Main.player = new MediaPlayer(hit);
 		Main.player.play();
 	}
 

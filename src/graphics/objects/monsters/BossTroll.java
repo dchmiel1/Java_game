@@ -7,8 +7,9 @@ import graphics.MyPaths;
 import graphics.World;
 import graphics.objects.Hero;
 import graphics.objects.Monster;
-//import jaco.mp3.player.MP3Player;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import main.Main;
@@ -22,7 +23,7 @@ public class BossTroll extends Monster {
 	private int timeToAttack;
 	private boolean attack;
 	private Hero hero;
-	//private MP3Player player;
+	private MediaPlayer player;
 
 	public BossTroll(double x, double y, World world, Hero hero, GameState gameState) {
 		super(x, y, world, gameState);
@@ -54,8 +55,9 @@ public class BossTroll extends Monster {
 	private void attack() {
 		if (Main.ifSounds) {
 			try {
-				//player = new MP3Player(new File(MyPaths.trollHit));
-				//player.play();
+				Media hit = new Media(new File(MyPaths.trollHit).toURI().toString());
+				player = new MediaPlayer(hit);
+				player.play();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
