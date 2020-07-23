@@ -44,7 +44,6 @@ public class MonsterDryad extends Monster {
 		}
 		this.width = (int) imgR[0].getWidth();
 		this.height = (int) imgR[0].getHeight();
-
 	}
 
 	private void attack() {
