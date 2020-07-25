@@ -37,7 +37,6 @@ public class Arrow extends Object{
 				img[5] = new Image(getClass().getResource(MyPaths.arrowR_5).toExternalForm());
 				break;
 			}
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

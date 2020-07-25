@@ -2,6 +2,9 @@ package graphics.objects;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Optional;
+import java.util.function.Predicate;
+
 import gameStates.GameState;
 import graphics.GameCamera;
 import graphics.MyPaths;
@@ -211,39 +214,35 @@ public abstract class Hero extends Object {
 	}
 
 	private void updItems() {
-		for (int i = 0; i < gameState.getWeapons().size(); i++) {
-			if (this.ifCollisionWithObject(gameState.getWeapons().get(i))) {
-				if (Main.ifSounds)
-					if (!Main.ifSpecialSounds)
-						playSound(soundFile[5]);
-					else
-						playSound(specialSounds[3]);
-				if (activeWeapon == WeaponType.none)
-					activeWeapon = gameState.getWeapons().get(i).getWeaponType();
-				weapons.add(gameState.getWeapons().get(i).getWeaponType());
-				weaponIcons.add(gameState.getWeapons().get(i).getWeaponIcon());
-				gameState.getWeapons().remove(i);
-			}
+		Optional<Weapon> wpnCollected = gameState.getWeapons().stream().filter(this::ifCollisionWithObject).findFirst();
+		Optional<Item> itmCollected = gameState.getItems().stream().filter(this::ifCollisionWithObject).findFirst();
+		
+		if(wpnCollected.isPresent()) {
+			if (Main.ifSounds)
+				if (!Main.ifSpecialSounds)
+					playSound(soundFile[5]);
+				else
+					playSound(specialSounds[3]);
+			if (activeWeapon == WeaponType.none)
+				activeWeapon = wpnCollected.get().getWeaponType();
+			weapons.add(wpnCollected.get().getWeaponType());
+			weaponIcons.add(wpnCollected.get().getWeaponIcon());
+			gameState.getWeapons().remove(wpnCollected.get());
 		}
-		for (int i = 0; i < gameState.getItems().size(); i++) {
-			if (this.ifCollisionWithObject(gameState.getItems().get(i))) {
-				if (Main.ifSounds)
-					if (!Main.ifSpecialSounds)
-						playSound(soundFile[5]);
-					else
-						playSound(specialSounds[3]);
-				if (gameState.getItems().get(i).getItemType() == ItemType.bullets) {
-					bullets += 10;
-				}
-				if (gameState.getItems().get(i).getItemType() == ItemType.potion) {
-					if (hp > maxHp - 50)
-						hp = maxHp;
-					else
-						hp += 50;
-				}
-
-				gameState.getItems().remove(i);
-			}
+		if(itmCollected.isPresent()) {
+			if (Main.ifSounds)
+				if (!Main.ifSpecialSounds)
+					playSound(soundFile[5]);
+				else
+					playSound(specialSounds[3]);
+			if(itmCollected.get().getItemType() == ItemType.bullets)
+				bullets += 10;
+			if(itmCollected.get().getItemType() == ItemType.potion)
+				if (hp > maxHp - 50)
+					hp = maxHp;
+				else
+					hp += 50;
+			gameState.getItems().remove(itmCollected.get());
 		}
 	}
 

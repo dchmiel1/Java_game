@@ -27,12 +27,6 @@ public class Level1 extends GameState {
 	private MonsterTree treeMonster;
 	private MonsterDryad dryadMonster;
 	private char choice;
-	private Weapon bat;
-	private Weapon pistol;
-	private Weapon sword;
-	private Item bullets;
-	private Item potion;
-	private Sign sign;
 	private double wormX[] = { 27, 113, 156, 149, 149.5, 150, 150.5, 151, 151.5, 152, 152.5, 274, 347, 366, 373, 405,
 			408, 410, 415, 420, 335, 456, 478, 498, 465, 469, 485, 538, 528, 578, 605, 610, 611, 558, 560, 561, 538,
 			600, 604 };
@@ -127,7 +121,7 @@ public class Level1 extends GameState {
 			};
 			
 			if (choice == 'm')
-				hero = new ManHero(this, 625 * world.getTileSize(), 750, world);
+				hero = new ManHero(this, 20 * world.getTileSize(), 750, world);
 			else
 				hero = new WomenHero(this, 150, 100, world);
 			for (int i = 0; i < wormX.length; i++) {
@@ -177,7 +171,7 @@ public class Level1 extends GameState {
 			world.loadTiles();
 			gameCamera = new GameCamera(0, 0, world);
 		} catch (RuntimeException e) {
-			System.exit(0);
+			e.printStackTrace();
 		}
 		setStartingObjects();
 		if (Main.ifMusic && !bossTime)

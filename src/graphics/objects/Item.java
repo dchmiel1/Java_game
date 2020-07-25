@@ -15,7 +15,6 @@ public class Item extends Object {
 
 	public Item(int x, int y, World world, ItemType itemType, GameState gameState) {
 		super(x, y, world, gameState);
-		this.itemType = itemType;
 		try {
 			if (itemType == ItemType.bullets) {
 				img = new Image(getClass().getResource(MyPaths.bullets).toExternalForm());
@@ -28,6 +27,7 @@ public class Item extends Object {
 			this.gc = world.getGc();
 		this.width = (int) img.getWidth();
 		this.height = (int) img.getHeight();
+		this.itemType = itemType;
 	}
 
 	@Override
