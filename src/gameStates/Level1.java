@@ -116,8 +116,18 @@ public class Level1 extends GameState {
 	@Override
 	protected void setStartingObjects() {
 		try {
+			ObjectCreating<Weapon, Integer, Integer, World, WeaponType, GameState, Integer> wpn = (a, b, c, d, e, f) -> {
+				return new Weapon(a * world.getTileSize() + f, b + world.getTileSize() * world.getYMapOff(), c, d, e);
+			};
+			ObjectCreating<Sign, Integer, Integer, World, SignType, GameState, Integer> sgn = (a, b, c, d, e, f) ->{
+				return new Sign(a * world.getTileSize() + f, b + world.getTileSize() * world.getYMapOff(), c, d, e);
+			};
+			ObjectCreating<Item, Integer, Integer, World, ItemType, GameState, Integer> itm = (a, b, c, d, e, f) ->{
+				return new Item(a * world.getTileSize() + f, b + world.getTileSize() * world.getYMapOff(), c, d, e);
+			};
+			
 			if (choice == 'm')
-				hero = new ManHero(this, 2 * world.getTileSize(), 750, world);
+				hero = new ManHero(this, 625 * world.getTileSize(), 750, world);
 			else
 				hero = new WomenHero(this, 150, 100, world);
 			for (int i = 0; i < wormX.length; i++) {
@@ -135,58 +145,27 @@ public class Level1 extends GameState {
 						dryadY[i] + world.getTileSize() * world.getYMapOff(), world, hero, this);
 				monsters.add(dryadMonster);
 			}
-			sign = new Sign(445 * world.getTileSize(), 550 + world.getYMapOff() * world.getTileSize(), world,
-					SignType.easy, this);
-			signs.add(sign);
-			sign = new Sign(521 * world.getTileSize(), 350 + world.getYMapOff() * world.getTileSize(), world,
-					SignType.easy, this);
-			signs.add(sign);
-			sign = new Sign(451 * world.getTileSize(), 230 + world.getYMapOff() * world.getTileSize(), world,
-					SignType.hard, this);
-			signs.add(sign);
-			sign = new Sign(517 * world.getTileSize(), 590 + world.getYMapOff() * world.getTileSize(), world,
-					SignType.hard, this);
-			signs.add(sign);
 			bg = new Background(MyPaths.bg, 0.1, hero);
 			bg.draw(gc);
-			bat = new Weapon(47 * world.getTileSize(), 490 + world.getTileSize() * world.getYMapOff(), world,
-					WeaponType.bat, this);
-			pistol = new Weapon(101 * world.getTileSize(), -170 + world.getTileSize() * world.getYMapOff(), world,
-					WeaponType.pistol, this);
-			weapons.add(bat);
-			weapons.add(pistol);
-			sword = new Weapon(423 * world.getTileSize(), 600 + world.getTileSize() * world.getYMapOff(), world,
-					WeaponType.sword, this);
-			weapons.add(sword);
-			bullets = new Item(46 * world.getTileSize(), 530 + world.getTileSize() * world.getYMapOff(), world,
-					ItemType.bullets, this);
-			items.add(bullets);
-			bullets = new Item(251 * world.getTileSize(), -120 + world.getTileSize() * world.getYMapOff(), world,
-					ItemType.bullets, this);
-			items.add(bullets);
-			bullets = new Item(252 * world.getTileSize() + 20, -120 + world.getTileSize() * world.getYMapOff(), world,
-					ItemType.bullets, this);
-			items.add(bullets);
-			potion = new Item(147 * world.getTileSize() + 60, -90 + world.getTileSize() * world.getYMapOff(), world,
-					ItemType.potion, this);
-			items.add(potion);
-			potion = new Item(629 * world.getTileSize(), -50 + world.getTileSize() * world.getYMapOff(), world,
-					ItemType.potion, this);
-			items.add(potion);
-			potion = new Item(618 * world.getTileSize(), 450 + world.getTileSize() * world.getYMapOff(), world,
-					ItemType.potion, this);
-			items.add(potion);
-			bullets = new Item(616 * world.getTileSize(), 450 + world.getTileSize() * world.getYMapOff(), world,
-					ItemType.bullets, this);
-			items.add(bullets);
-			potion = new Item(660 * world.getTileSize(), 450 + world.getTileSize() * world.getYMapOff(), world,
-					ItemType.potion, this);
-			items.add(potion);
+			signs.add(sgn.create(445, 550, world, SignType.easy, this, 0));
+			signs.add(sgn.create(521, 350, world, SignType.easy, this, 0));
+			signs.add(sgn.create(451, 230, world, SignType.hard, this, 0));
+			signs.add(sgn.create(517, 590, world, SignType.hard, this, 0));
+			weapons.add(wpn.create(101, -170, world, WeaponType.pistol, this, 0));
+			weapons.add(wpn.create(47,  490, world, WeaponType.bat, this, 0));
+			weapons.add(wpn.create(423, 600, world, WeaponType.sword, this, 0));
+			items.add(itm.create(46, 530, world, ItemType.bullets, this, 0));
+			items.add(itm.create(251, -120, world, ItemType.bullets, this, 0));
+			items.add(itm.create(252, -120, world, ItemType.bullets, this, 20));
+			items.add(itm.create(616, 450, world, ItemType.bullets, this, 0));
+			items.add(itm.create(147, -90, world, ItemType.potion, this, 60));
+			items.add(itm.create(629, -50, world, ItemType.potion, this, 0));
+			items.add(itm.create(618, 450, world, ItemType.potion, this, 0));
+			items.add(itm.create(660, 450, world, ItemType.potion, this, 0));
 			boss = new BossTroll(714 * world.getTileSize(), 385 + world.getYMapOff() * world.getTileSize(), world, hero,
 					this);
 		} catch (RuntimeException e) {
 			e.printStackTrace();
-			System.exit(0);
 		}
 	}
 	
