@@ -121,7 +121,7 @@ public class Level1 extends GameState {
 			};
 			
 			if (choice == 'm')
-				hero = new ManHero(this, 20 * world.getTileSize(), 750, world);
+				hero = new ManHero(this, 2 * world.getTileSize(), 750, world);
 			else
 				hero = new WomenHero(this, 150, 100, world);
 			for (int i = 0; i < wormX.length; i++) {

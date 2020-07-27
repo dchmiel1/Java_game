@@ -2,7 +2,6 @@ package graphics.objects;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Optional;
 import gameStates.GameState;
 import graphics.GameCamera;
 import graphics.MyPaths;
