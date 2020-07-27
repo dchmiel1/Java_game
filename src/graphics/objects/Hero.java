@@ -3,8 +3,6 @@ package graphics.objects;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.function.Predicate;
-
 import gameStates.GameState;
 import graphics.GameCamera;
 import graphics.MyPaths;
@@ -214,8 +212,8 @@ public abstract class Hero extends Object {
 	}
 
 	private void updItems() {
-		Optional<Weapon> wpnCollected = gameState.getWeapons().stream().filter(this::ifCollisionWithObject).findFirst();
-		Optional<Item> itmCollected = gameState.getItems().stream().filter(this::ifCollisionWithObject).findFirst();
+		var wpnCollected = gameState.getWeapons().stream().filter(this::ifCollisionWithObject).findFirst();
+		var itmCollected = gameState.getItems().stream().filter(this::ifCollisionWithObject).findFirst();
 		
 		if(wpnCollected.isPresent()) {
 			if (Main.ifSounds)
@@ -247,37 +245,36 @@ public abstract class Hero extends Object {
 	}
 
 	private void updHp() {
-		for (int i = 0; i < gameState.getMonsters().size(); i++) {
-			if (this.ifCollisionWithObject(gameState.getMonsters().get(i))) {
-				hp -= gameState.getMonsters().get(i).hpWhenCollision;
-				if (Main.ifSounds)
-					if (!Main.ifSpecialSounds)
-						playSound2(soundFile[2]);
-					else {
-						playSound2(specialSounds[j]);
-						j++;
-						if (j > 2)
-							j = 0;
-					}
-				timeToHit = 90;
-			}
+		var arrw = gameState.getArrows().stream().filter(this::ifCollisionWithObject).findFirst();
+		if(arrw.isPresent()) {
+			gameState.getArrows().remove(arrw.get());
+			hp -= 40;
+			if (Main.ifSounds)
+				if (!Main.ifSpecialSounds)
+					playSound2(soundFile[2]);
+				else {
+					playSound2(specialSounds[j]);
+					j++;
+					if (j > 2)
+						j = 0;
+				}
+			timeToHit = 90;
 		}
-		for (int i = 0; i < gameState.getArrows().size(); i++) {
-			if (this.ifCollisionWithObject(gameState.getArrows().get(i))) {
-				gameState.getArrows().remove(i);
-				hp -= 40;
-				if (Main.ifSounds)
-					if (!Main.ifSpecialSounds)
-						playSound2(soundFile[2]);
-					else {
-						playSound2(specialSounds[j]);
-						j++;
-						if (j > 2)
-							j = 0;
-					}
-				timeToHit = 90;
-			}
-		}
+		
+		gameState.getMonsters().stream().filter(this::ifCollisionWithObject).forEach(x -> {
+			hp -= x.hpWhenCollision;
+			if (Main.ifSounds)
+				if (!Main.ifSpecialSounds)
+					playSound2(soundFile[2]);
+				else {
+					playSound2(specialSounds[j]);
+					j++;
+					if (j > 2)
+						j = 0;
+				}
+			timeToHit = 90;
+		});
+
 		if (this.ifCollisionWithBoss()) {
 			hp -= gameState.getBoss().hpWhenCollision;
 			if (Main.ifSounds)
