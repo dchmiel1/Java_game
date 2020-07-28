@@ -42,7 +42,6 @@ public class Tile {
 			image = null;
 			collision = false;
 		}
-
 	}
 
 	public void render(GraphicsContext gc, int x, int y, int xOffset, int yOffset) {
