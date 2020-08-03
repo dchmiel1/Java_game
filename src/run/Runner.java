@@ -27,7 +27,7 @@ public class Runner {
 		Runner.gameOver = false;
 		Runner.win = false;
 	}
-	
+
 	private void gameOver() {
 		if (Main.ifSpecialSounds)
 			Main.setMusic(MyPaths.bGameOver);

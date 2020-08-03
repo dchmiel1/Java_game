@@ -21,7 +21,7 @@ public class Keyboard {
 		this.scene = scene;
 		setKeyboard();
 	}
-	
+
 	private void setKeyboard() {
 		scene.addEventFilter(KeyEvent.KEY_PRESSED, key -> {
 			String code = key.getCode().toString();
@@ -69,6 +69,5 @@ public class Keyboard {
 			hero.startAttack();
 		}
 	}
-
 
 }

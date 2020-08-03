@@ -110,16 +110,17 @@ public class Level1 extends GameState {
 	@Override
 	protected void setStartingObjects() {
 		try {
-			ObjectCreating<Weapon, Integer, Integer, World, WeaponType, GameState, Integer> wpn = (a, b, c, d, e, f) -> {
+			ObjectCreating<Weapon, Integer, Integer, World, WeaponType, GameState, Integer> wpn = (a, b, c, d, e,
+					f) -> {
 				return new Weapon(a * world.getTileSize() + f, b + world.getTileSize() * world.getYMapOff(), c, d, e);
 			};
-			ObjectCreating<Sign, Integer, Integer, World, SignType, GameState, Integer> sgn = (a, b, c, d, e, f) ->{
+			ObjectCreating<Sign, Integer, Integer, World, SignType, GameState, Integer> sgn = (a, b, c, d, e, f) -> {
 				return new Sign(a * world.getTileSize() + f, b + world.getTileSize() * world.getYMapOff(), c, d, e);
 			};
-			ObjectCreating<Item, Integer, Integer, World, ItemType, GameState, Integer> itm = (a, b, c, d, e, f) ->{
+			ObjectCreating<Item, Integer, Integer, World, ItemType, GameState, Integer> itm = (a, b, c, d, e, f) -> {
 				return new Item(a * world.getTileSize() + f, b + world.getTileSize() * world.getYMapOff(), c, d, e);
 			};
-			
+
 			if (choice == 'm')
 				hero = new ManHero(this, 2 * world.getTileSize(), 750, world);
 			else
@@ -146,7 +147,7 @@ public class Level1 extends GameState {
 			signs.add(sgn.create(451, 230, world, SignType.hard, this, 0));
 			signs.add(sgn.create(517, 590, world, SignType.hard, this, 0));
 			weapons.add(wpn.create(101, -170, world, WeaponType.pistol, this, 0));
-			weapons.add(wpn.create(47,  490, world, WeaponType.bat, this, 0));
+			weapons.add(wpn.create(47, 490, world, WeaponType.bat, this, 0));
 			weapons.add(wpn.create(423, 600, world, WeaponType.sword, this, 0));
 			items.add(itm.create(46, 530, world, ItemType.bullets, this, 0));
 			items.add(itm.create(251, -120, world, ItemType.bullets, this, 0));
@@ -162,7 +163,7 @@ public class Level1 extends GameState {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void start() {
 		try {

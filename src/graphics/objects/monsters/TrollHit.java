@@ -4,7 +4,7 @@ import gameStates.GameState;
 import graphics.World;
 import graphics.objects.Monster;
 
-public class TrollHit extends Monster{
+public class TrollHit extends Monster {
 
 	public TrollHit(double x, double y, World world, GameState gameState) {
 		super(x, y, world, gameState);
@@ -17,8 +17,8 @@ public class TrollHit extends Monster{
 
 	@Override
 	public int update(double time) {
-		hp --;
-		if(hp == 0)
+		hp--;
+		if (hp == 0)
 			return 1;
 		else
 			return 0;

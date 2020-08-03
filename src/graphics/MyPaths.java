@@ -2,7 +2,7 @@ package graphics;
 
 public class MyPaths {
 
-	//screens
+	// screens
 	public final static String screenMenu = "/fxml/menuScreen.fxml";
 	public final static String screenHeroChoice = "/fxml/heroChoiceScreen.fxml";
 	public final static String screenMain = "/fxml/mainScreen.fxml";
@@ -10,8 +10,8 @@ public class MyPaths {
 	public final static String screenHelp = "/fxml/helpScreen.fxml";
 	public final static String screenWin = "/fxml/winScreen.fxml";
 	public final static String screenCredits = "/fxml/creditsScreen.fxml";
-	
-	//heroes
+
+	// heroes
 	public final static String heroM = "/img/hero/heroM.png";
 	public final static String heroF = "/img/hero/heroF.png";
 	public final static String heroM_R = "/img/hero/heroM_R.png";
@@ -34,8 +34,8 @@ public class MyPaths {
 	public final static String heroM_L_batAttack_2 = "/img/hero/heroM_L_batAttack_2.png";
 	public final static String heroM_R_batAttack_1 = "/img/hero/heroM_R_batAttack_1.png";
 	public final static String heroM_L_batAttack_1 = "/img/hero/heroM_L_batAttack_1.png";
-	
-	//monsters
+
+	// monsters
 	public final static String wormR = "/img/monsters/worm_R.png";
 	public final static String wormL = "/img/monsters/worm_L.png";
 	public final static String treeMonsterR_1 = "/img/monsters/treeMonsterR_1.png";
@@ -70,9 +70,8 @@ public class MyPaths {
 	public final static String troll_attackR_3 = "/img/monsters/troll_attackR_3.png";
 	public final static String troll_dead_R = "/img/monsters/troll_dead_R.png";
 	public final static String troll_dead_L = "/img/monsters/troll_dead_L.png";
-	
-	
-	//weapons
+
+	// weapons
 	public final static String batR = "/img/weapons/batR.png";
 	public final static String batL = "/img/weapons/batL.png";
 	public final static String batToCollect = "/img/weapons/batToCollect.png";
@@ -98,39 +97,38 @@ public class MyPaths {
 	public final static String swordR = "/img/weapons/swordR.png";
 	public final static String swordL = "/img/weapons/swordL.png";
 	public final static String swordToCollect = "/img/weapons/swordToCollect.png";
-	
-	//items
+
+	// items
 	public final static String bullets = "/img/items/bullets.png";
 	public final static String potion = "/img/items/potion.png";
 	public final static String bullet = "/img/items/bullet.png";
-	
-	
-	//tiles
+
+	// tiles
 	public final static String dirt = "/img/tiles/dirt.png";
 	public final static String grassSingle = "/img/tiles/grassSingle.png";
 	public final static String grassMiddle = "/img/tiles/grassMiddle.png";
 	public final static String grassLeft = "/img/tiles/grassLeft.png";
 	public final static String grassRight = "/img/tiles/grassRight.png";
-	
-	//bgs
+
+	// bgs
 	public final static String bg = "/img/bg/bg.png";
 	public final static String menuBg = "/img/bg/menuBg.png";
-	
-	//maps
+
+	// maps
 	public final static String mapLevel1 = "/maps/map.txt";
-	
-	//signs
+
+	// signs
 	public final static String easySign = "/img/signs/easyWaySign.png";
 	public final static String hardSign = "/img/signs/hardWaySign.png";
-	
-	//menu
+
+	// menu
 	public final static String volume_on = "/img/other/volume_on.png";
 	public final static String volume_off = "/img/other/volume_off.png";
 	public final static String music_on = "/img/other/music_on.png";
 	public final static String music_off = "/img/other/music_off.png";
-	
-	//SOUNDS
-	
+
+	// SOUNDS
+
 	public final static String weaponAttack = "res/sound/weaponAttack.mp3";
 	public final static String hit = "res/sound/hit.mp3";
 	public final static String bow = "res/sound/bow.mp3";
@@ -144,7 +142,7 @@ public class MyPaths {
 	public final static String bossMusic = "res/sound/bossMusic.mp3";
 	public final static String winSound = "res/sound/win.mp3";
 	public final static String trollHit = "res/sound/trollHit.mp3";
-	
+
 	public final static String bHit1 = "res/sound/special/bHit1.mp3";
 	public final static String bHit2 = "res/sound/special/bHit2.mp3";
 	public final static String bHit3 = "res/sound/special/bHit3.mp3";

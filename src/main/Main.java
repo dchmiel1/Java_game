@@ -39,7 +39,7 @@ public class Main extends Application {
 		stage.setTitle("Game");
 		stage.show();
 	}
-	
+
 	public static void setMusic(String path) {
 		player.stop();
 		String currentDirectory = System.getProperty("user.dir");

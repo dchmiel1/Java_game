@@ -53,7 +53,7 @@ public abstract class Hero extends Object {
 	protected File soundFile[] = new File[6];
 	private MediaPlayer player;
 	private MediaPlayer player2;
-	
+
 	protected File specialSounds[] = new File[5];
 	protected int j = 0;
 
@@ -79,11 +79,11 @@ public abstract class Hero extends Object {
 			e.printStackTrace();
 		}
 	}
-	
+
 	protected abstract void loadSpecialImgs();
 
 	public abstract void specialMove();
-	
+
 	private void playSound(File file) {
 		try {
 			Media hit = new Media(file.toURI().toString());
@@ -93,7 +93,7 @@ public abstract class Hero extends Object {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void playSound2(File file) {
 		try {
 			Media hit = new Media(file.toURI().toString());
@@ -213,8 +213,8 @@ public abstract class Hero extends Object {
 	private void updItems() {
 		var wpnCollected = gameState.getWeapons().stream().filter(this::ifCollisionWithObject).findFirst();
 		var itmCollected = gameState.getItems().stream().filter(this::ifCollisionWithObject).findFirst();
-		
-		if(wpnCollected.isPresent()) {
+
+		if (wpnCollected.isPresent()) {
 			if (Main.ifSounds)
 				if (!Main.ifSpecialSounds)
 					playSound(soundFile[5]);
@@ -226,15 +226,15 @@ public abstract class Hero extends Object {
 			weaponIcons.add(wpnCollected.get().getWeaponIcon());
 			gameState.getWeapons().remove(wpnCollected.get());
 		}
-		if(itmCollected.isPresent()) {
+		if (itmCollected.isPresent()) {
 			if (Main.ifSounds)
 				if (!Main.ifSpecialSounds)
 					playSound(soundFile[5]);
 				else
 					playSound(specialSounds[3]);
-			if(itmCollected.get().getItemType() == ItemType.bullets)
+			if (itmCollected.get().getItemType() == ItemType.bullets)
 				bullets += 10;
-			if(itmCollected.get().getItemType() == ItemType.potion)
+			if (itmCollected.get().getItemType() == ItemType.potion)
 				if (hp > maxHp - 50)
 					hp = maxHp;
 				else
@@ -245,7 +245,7 @@ public abstract class Hero extends Object {
 
 	private void updHp() {
 		var arrw = gameState.getArrows().stream().filter(this::ifCollisionWithObject).findFirst();
-		if(arrw.isPresent()) {
+		if (arrw.isPresent()) {
 			gameState.getArrows().remove(arrw.get());
 			hp -= 40;
 			if (Main.ifSounds)
@@ -259,7 +259,7 @@ public abstract class Hero extends Object {
 				}
 			timeToHit = 90;
 		}
-		
+
 		gameState.getMonsters().stream().filter(this::ifCollisionWithObject).forEach(x -> {
 			hp -= x.hpWhenCollision;
 			if (Main.ifSounds)
