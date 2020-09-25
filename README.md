@@ -9,7 +9,7 @@ Download the repository (it's quite heavy because of game music)
 cd Game_withJRE/bin
 VERSION.bat
 ```
-
+ 
 **Screenshots**  
 ![Alt text](/Screenshots/Java_game_screen1.png?raw=true "Menu")
 ![Alt text](Screenshots/Java_game_screen2.png?raw=true)
