@@ -3,6 +3,7 @@
 **Project description**  
   
 Easy game written in Java. In order to win, you have to come to the end of the map and kill the boss. On the way there are 3 types of monsters making it harder to win the game.
+  
 
 **How to play on Windows**  
   
